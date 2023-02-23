@@ -2,8 +2,8 @@ import React from "react";
 import ReactECharts from "echarts-for-react";
 import { data } from "../data";
 const BarChart = () => {
-  let alcohol = [];
-  let malicAcid = [];
+  const alcohol = [];
+  const malicAcid = [];
   for (let i = 0; i < data.length; i++) {
     console.log("Alcohol", data[i]["Alcohol"]);
     alcohol.push(data[i]["Alcohol"]);
@@ -32,10 +32,13 @@ const BarChart = () => {
       {
         type: "bar",
         data: alcohol,
-        
       },
     ],
-
+    legend: {
+      data: ["Malic Acid", "Alcohol"],
+      icon: "rect",
+      // ...
+    },
     backgroundColor: {
       type: "radial",
       x: 0.3,
@@ -54,7 +57,11 @@ const BarChart = () => {
     },
   };
 
-  return <ReactECharts option={option} />;
+  return (
+    <div className="Scatter">
+      <ReactECharts option={option} />
+    </div>
+  );
 };
 
 export default BarChart;

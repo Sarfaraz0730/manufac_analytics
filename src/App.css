@@ -45,3 +45,36 @@
   height: 100%;
   width: 100%;
 }
+.Scatter {
+  border: 1px solid black;
+  margin-bottom: 3%;
+}
+@media only screen and (min-width: 600px) {
+  .Scatter {
+    width: 90%;
+    margin-left: 2%;
+    margin-right: 8%;
+  }
+  .App {
+    text-align: center;
+    font-size: 45px;
+    font-weight: 400;
+    line-height: normal;
+    background-color: #c3c0bb;
+    height: 100%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .Scatter {
+    width: 98%;
+  }
+  .App {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 300;
+    line-height: normal;
+    background-color: #c3c0bb;
+    height: 100%;
+    width: 100%;
+  }
+}

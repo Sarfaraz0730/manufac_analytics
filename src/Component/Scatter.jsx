@@ -1,18 +1,19 @@
 import React from "react";
+import "../App.css";
 import ReactECharts from "echarts-for-react";
 import { data } from "../data";
 import BarChart from "./BarChart";
 
 const Scatter = () => {
   console.log("dataaa", data);
-  var colorIntensity = [];
-  var hue = [];
+  const colorIntensity = [];
+  const hue = [];
   for (let i = 0; i < data.length; i++) {
     colorIntensity.push(data[i]["Color intensity"]);
     hue.push(data[i]["Hue"]);
   }
 
-  var option = {
+  const option = {
     xAxis: {
       data: colorIntensity,
       name: "Color Intensity",
@@ -44,13 +45,14 @@ const Scatter = () => {
       ],
     },
     title: {
-      text: "Data Visualization of  Color Intensity and Hue ",
+      text: "  Color Intensity and Hue ",
       x: "center",
+      fontSize: "5px",
     },
   };
 
   return (
-    <div>
+    <div className="Scatter">
       <ReactECharts option={option} />
     </div>
   );
