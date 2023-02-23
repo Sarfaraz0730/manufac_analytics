@@ -1,29 +1,59 @@
 import React from "react";
 import ReactECharts from "echarts-for-react";
+import { data } from "../data";
+import BarChart from "./BarChart";
 
-const Scatter= () => {
-  const options = {
-    grid: { top: 8, right: 8, bottom: 24, left: 36 },
+const Scatter = () => {
+  console.log("dataaa", data);
+  var colorIntensity = [];
+  var hue = [];
+  for (let i = 0; i < data.length; i++) {
+    colorIntensity.push(data[i]["Color intensity"]);
+    hue.push(data[i]["Hue"]);
+  }
+
+  var option = {
     xAxis: {
-      type: "category",
-      data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      data: colorIntensity,
+      name: "Color Intensity",
     },
     yAxis: {
-      type: "value",
+      name: "Hue",
     },
     series: [
       {
-        data: [820, 932, 901, 934, 1290, 1330, 1320],
-        type: "line",
-        smooth: true,
+        type: "scatter",
+        data: hue,
       },
     ],
-    tooltip: {
-      trigger: "axis",
+
+    backgroundColor: {
+      type: "radial",
+      x: 0.3,
+      y: 0.3,
+      r: 0.8,
+      colorStops: [
+        {
+          offset: 0,
+          color: "#fafaf7",
+        },
+        {
+          offset: 1,
+          color: "#efe9ef",
+        },
+      ],
+    },
+    title: {
+      text: "Data Visualization of  Color Intensity and Hue ",
+      x: "center",
     },
   };
 
-  return <ReactECharts option={options} />;
+  return (
+    <div>
+      <ReactECharts option={option} />
+    </div>
+  );
 };
 
 export default Scatter;
